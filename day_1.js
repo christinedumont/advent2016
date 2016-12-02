@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 
-console.log('Test data');
+//console.log('Test data');
 /*if (computeBlocks('d1_data/test1.txt', false)!=5) console.log('Test 1 failed.');
 if (computeBlocks('d1_data/test2.txt', false)!=2) console.log('Test 2 failed.');
 if (computeBlocks('d1_data/test3.txt', false)!=12) console.log('Test 3 failed.');
