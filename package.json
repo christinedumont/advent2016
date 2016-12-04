@@ -2,7 +2,8 @@
   "dependencies": {
     "async": "^2.0.0-rc.4",
     "asyncawait": "^1.0.6",
-    "bluebird": "^3.4.1"
+    "bluebird": "^3.4.1",
+    "caesar-shift": "^1.0.0"
   },
   "engines": {
     "node": "4.4.4"

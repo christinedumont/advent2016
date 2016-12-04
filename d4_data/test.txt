@@ -1,0 +1,10 @@
+aaaaa-bbb-z-y-x-123[abxyz]
+a-b-c-d-f-e-g-h-987[abcde]
+not-a-real-room-404[oarel]
+totally-real-room-200[decoy]
+
+aaaaa-bbb-z-z-z-000[abz]
+bbbbb-aaa-z-y-x-000[baxyz]
+bbbbb-aaaaa-z-y-x-000[abxyz]
+
+bbbbb-aaaaa-z-y-x-000[baxyz]
