@@ -1,8 +1,8 @@
 "use strict";
 
-var fs = require('fs');
+var utils = require('./utils/utils.js');
 
-var lines = dataFromFile('d3_data/puzzle.txt');
+var lines = utils.dataFromFile('d3_data/puzzle.txt');
 validateTrianglesP1(lines);
 validateTrianglesP2(lines);
 
@@ -88,11 +88,4 @@ function validateTrianglesP2(lines) {
   }
 
   console.log('P2 :: Total valid triangles = '+totalValids);
-};
-
-
-function dataFromFile(filename) {
-  var data = fs.readFileSync(filename, 'utf8');
-  var lines = data.split('\n');
-  return lines;
 };

@@ -1,14 +1,14 @@
 "use strict";
 
-var fs = require('fs');
+var utils = require('./utils/utils.js');
 
 console.log('Test');
-var lines = dataFromFile('d2_data/example.txt');
+var lines = utils.cleanedDataFromFile('d2_data/example.txt');
 (codeForLines(lines, 1)=='1985') ? console.log('P1 Success!') : console.log('P1 Failure :(');
 (codeForLines(lines, 2)=='5DB3') ? console.log('P2 Success!') : console.log('P2 Failure :(');
 
-console.log('Puzzle');
-var lines = dataFromFile('d2_data/puzzle.txt');
+console.log('\n\nPuzzle');
+var lines = utils.cleanedDataFromFile('d2_data/puzzle.txt');
 codeForLines(lines, 1);
 codeForLines(lines, 2);
 
@@ -23,35 +23,13 @@ function codeForLines(lines, part) {
     for (var j=0, len2 = line.length; j < len2; j++) {
       var move = line.charAt(j);
       var npos = nextValue(pos, move, part);
-      //console.log('line %s %s / move %s / pos %s / npos %s', i, line, move, pos, npos);
       pos = npos;
     }
-    // end of line, print value
-    //console.log('result for line['+(i+'')+'] is => '+pos)
     code = code+pos;
   }
   console.log('part %s final code => '+code, part);
   return code;
 }
-
-function dataFromFile(filename) {
-  //console.log('Reading file:'+filename);
-  var data = fs.readFileSync(filename, 'utf8');
-
-  var lines = data.split('\n');
-  //console.log('File got %s lines', lines.length);
-
-  var cleanLines = [];
-  for (var i = 0, len = lines.length; i < len; i++) {
-    var line = lines[i];
-    line = line.replace(/[\x00-\x1F\x7F-\x9F]/g, "");
-
-    if (line.length>0)
-      cleanLines.push(line);
-  }
-
-  return cleanLines;
-};
 
 function nextValue(currentValue, move, part) {
   if (part == 1) {

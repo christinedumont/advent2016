@@ -2,13 +2,6 @@
 
 var fs = require('fs');
 
-//console.log('Test data');
-/*if (computeBlocks('d1_data/test1.txt', false)!=5) console.log('Test 1 failed.');
-if (computeBlocks('d1_data/test2.txt', false)!=2) console.log('Test 2 failed.');
-if (computeBlocks('d1_data/test3.txt', false)!=12) console.log('Test 3 failed.');
-if (computeBlocks('d1_data/test4.txt', false)!=4) console.log('Test 4 failed.');
-if (computeBlocks('d1_data/test5.txt', false)!=8) console.log('Test 5 failed.');*/
-
 console.log('result for puzzle input is = '+computeBlocks('d1_data/input.txt', false));
 
 function computeBlocks(filename, output) {

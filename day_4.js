@@ -1,19 +1,14 @@
 "use strict";
 
-var fs = require('fs');
+var utils = require('./utils/utils.js');
 var crypt = require('./utils/caesar.js');
 
-//var lines = dataFromFile('d4_data/test.txt');
-//(processLines(lines)==1514) ? console.log('...... Success') : console.log('....... Failure');
-
-//var test2 = dataFromFile('d4_data/test2.txt');
-//processLines(test2);
-
-var lines = dataFromFile('d4_data/puzzle.txt');
+var lines = utils.dataFromFile('d4_data/puzzle.txt');
 processLines(lines);
 
 function processLines(lines) {
   var sectorTotal = 0;
+  var part2Possibilities = new Array();
   for (var i = 0, len = lines.length; i < len; i++) {
     var line = lines[i];
     if (line.trim().length > 0) {
@@ -45,12 +40,14 @@ function processLines(lines) {
 
         // let's try and find some common worlds
         if (realname.indexOf('north') !== -1 || realname.indexOf('pole') !== -1) {
-          console.log('Part 2 possible answer [%s]: '+ realname, parseInt(sectorId));
+          part2Possibilities.push('Name: '+ realname +', SectorId: '+parseInt(sectorId));
         }
       }
     }
   }
-  console.log('Part one answer, sum of sector ID for valid rooms: '+sectorTotal);
+  console.log('Part 1 answer, sum of sector ID for valid rooms: '+sectorTotal);
+  console.log('Part 2 possible(s) answer(s):\n', part2Possibilities);
+
   return sectorTotal;
 };
 
@@ -82,9 +79,3 @@ function lettersArrToString(array) {
   }
   return myStr;
 }
-
-function dataFromFile(filename) {
-  var data = fs.readFileSync(filename, 'utf8');
-  var lines = data.split('\n');
-  return lines;
-};
