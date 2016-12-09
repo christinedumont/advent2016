@@ -39,3 +39,11 @@ module.exports.printArrayPretty = function(arr) {
   }
   console.log(str);
 }
+
+module.exports.sleep = function(time, callback) {
+    var stop = new Date().getTime();
+    while(new Date().getTime() < stop + time) {
+        ;
+    }
+    callback();
+}
