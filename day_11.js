@@ -12,6 +12,7 @@ function move(testData, currentMoves) {
     console.log(chalk.yellow('Found possible path with ')+chalk.red(currentMoves)+chalk.yellow(' moves'));
     return;
   } else {
+    var currentMove = copy(testData);
     var moves = possibleMoves(testData);
     console.log(chalk.magenta(JSON.stringify(moves)));
     console.log(currentMoves);
