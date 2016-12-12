@@ -4,9 +4,9 @@ var chalk = require('chalk');
 var utils = require('./utils/utils.js');
 
 var data = utils.dataFromFile('d9_data/puzzle.txt')[0];
-solve(data);
+solveP1(data);
 
-function solve(data) {
+function solveP1(data) {
   const markerRegex = /\(+(.+?)\)/;
   var decompressed = '';
   while (data.length != 0)
