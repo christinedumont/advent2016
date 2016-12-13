@@ -1,28 +1,28 @@
 "use strict";
 
-var utils = require('./utils/utils.js');
+let utils = require('./../utils/utils.js');
 
 console.log('Test');
-var lines = utils.cleanedDataFromFile('d2_data/example.txt');
+let lines = utils.cleanedDataFromFile('d2_data/example.txt');
 (codeForLines(lines, 1)=='1985') ? console.log('P1 Success!') : console.log('P1 Failure :(');
 (codeForLines(lines, 2)=='5DB3') ? console.log('P2 Success!') : console.log('P2 Failure :(');
 
 console.log('\n\nPuzzle');
-var lines = utils.cleanedDataFromFile('d2_data/puzzle.txt');
+lines = utils.cleanedDataFromFile('d2_data/puzzle.txt');
 codeForLines(lines, 1);
 codeForLines(lines, 2);
 
 // example answer 1985
 
 function codeForLines(lines, part) {
-  var pos = '5';
-  var code = '';
+  let pos = '5';
+  let code = '';
 
-  for (var i = 0, len = lines.length; i < len; i++) {
-    var line = lines[i];
-    for (var j=0, len2 = line.length; j < len2; j++) {
-      var move = line.charAt(j);
-      var npos = nextValue(pos, move, part);
+  for (let i = 0, len = lines.length; i < len; i++) {
+    let line = lines[i];
+    for (let j=0, len2 = line.length; j < len2; j++) {
+      let move = line.charAt(j);
+      let npos = nextValue(pos, move, part);
       pos = npos;
     }
     code = code+pos;

@@ -1,20 +1,20 @@
 "use strict";
 
-var utils = require('./utils/utils.js');
+let utils = require('./../utils/utils.js');
 
-var lines = utils.dataFromFile('d3_data/puzzle.txt');
+let lines = utils.dataFromFile('d3_data/puzzle.txt');
 validateTrianglesP1(lines);
 validateTrianglesP2(lines);
 
 function validateTrianglesP1(lines) {
 
-  var totalValids = 0;
-  for (var i = 0, len = lines.length; i < len; i++) {
-    var line = lines[i];
+  let totalValids = 0;
+  for (let i = 0, len = lines.length; i < len; i++) {
+    let line = lines[i];
     if (line.trim().length!=0) {
-      var valuesArr = line.split(' ');
-      var cleanValues = [];
-      for (var j = 0, len2 = valuesArr.length; j < len2; j++) {
+      let valuesArr = line.split(' ');
+      let cleanValues = [];
+      for (let j = 0, len2 = valuesArr.length; j < len2; j++) {
         if (parseInt(valuesArr[j])) {
           cleanValues.push(parseInt(valuesArr[j]));
         }
@@ -31,42 +31,42 @@ function validateTrianglesP1(lines) {
 };
 
 function validateTrianglesP2(lines) {
-  var totalValids = 0;
+  let totalValids = 0;
 
-  for (var i = 0, len = lines.length; i < len; i+=3) {
-    var line1 = lines[i];
-    var line2 = lines[i+1];
-    var line3 = lines[i+2];
+  for (let i = 0, len = lines.length; i < len; i+=3) {
+    let line1 = lines[i];
+    let line2 = lines[i+1];
+    let line3 = lines[i+2];
 
     if (line1.trim().length!=0 && line2.trim().length!=0 && line3.trim().length!=0) {
-      var line1split = line1.split(' ');
-      var line2split = line2.split(' ');
-      var line3split = line3.split(' ');
+      let line1split = line1.split(' ');
+      let line2split = line2.split(' ');
+      let line3split = line3.split(' ');
 
-      var cleanValues1 = [];
-      for (var j = 0, len2 = line1split.length; j < len2; j++) {
+      let cleanValues1 = [];
+      for (let j = 0, len2 = line1split.length; j < len2; j++) {
         if (parseInt(line1split[j])) {
           cleanValues1.push(parseInt(line1split[j]));
         }
       }
 
-      var cleanValues2 = [];
-      for (var j = 0, len2 = line2split.length; j < len2; j++) {
+      let cleanValues2 = [];
+      for (let j = 0, len2 = line2split.length; j < len2; j++) {
         if (parseInt(line2split[j])) {
           cleanValues2.push(parseInt(line2split[j]));
         }
       }
 
-      var cleanValues3 = [];
-      for (var j = 0, len2 = line3split.length; j < len2; j++) {
+      let cleanValues3 = [];
+      for (let j = 0, len2 = line3split.length; j < len2; j++) {
         if (parseInt(line3split[j])) {
           cleanValues3.push(parseInt(line3split[j]));
         }
       }
 
-      var triangle1 = [cleanValues1[0], cleanValues2[0], cleanValues3[0]];
-      var triangle2 = [cleanValues1[1], cleanValues2[1], cleanValues3[1]];
-      var triangle3 = [cleanValues1[2], cleanValues2[2], cleanValues3[2]];
+      let triangle1 = [cleanValues1[0], cleanValues2[0], cleanValues3[0]];
+      let triangle2 = [cleanValues1[1], cleanValues2[1], cleanValues3[1]];
+      let triangle3 = [cleanValues1[2], cleanValues2[2], cleanValues3[2]];
 
       triangle1 = triangle1.sort((a, b) => a - b);
       triangle2 = triangle2.sort((a, b) => a - b);

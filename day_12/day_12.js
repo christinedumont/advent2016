@@ -1,26 +1,26 @@
 "use strict";
 
-var chalk = require('chalk');
-var utils = require('./utils/utils.js');
+let chalk = require('chalk');
+let utils = require('./../utils/utils.js');
 
-var lines = utils.dataFromFile('d12_data/puzzle.txt');
+let lines = utils.dataFromFile('d12_data/puzzle.txt');
 
-var registers = {};
+let registers = {};
 console.log(chalk.magenta('P1 answer: ')+chalk.green(JSON.stringify(solve(lines, registers))));
 
-var registers2 = {'c':1};
+let registers2 = {'c':1};
 console.log(chalk.magenta('P2 answer: ')+chalk.green(JSON.stringify(solve(lines, registers2))));
 
 function solve(lines, data) {
-  for (var i=0; i<lines.length; i++) {
+  for (let i=0; i<lines.length; i++) {
     if (lines[i].trim().length>0) {
-      var tokens = lines[i].split(' ');
+      let tokens = lines[i].split(' ');
       if (tokens[0] == 'cpy') {
-        var register = tokens[2];
+        let register = tokens[2];
         if (!data[register]) {
           data[register] = 0;
         }
-        var val = tokens[1];
+        let val = tokens[1];
         if (!isNaN(val)) {
           data[register] = parseInt(val);
         } else {

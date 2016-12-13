@@ -1,30 +1,30 @@
 "use strict";
 
-var fs = require('fs');
+let fs = require('fs');
 
-console.log('result for puzzle input is = '+computeBlocks('d1_data/input.txt', false));
+console.log('result for puzzle input is: '+computeBlocks('d1_data/input.txt', false));
 
 function computeBlocks(filename, output) {
-  var data = fs.readFileSync(filename, 'utf8');
+  let data = fs.readFileSync(filename, 'utf8');
   data = data.replace(/\s+/g, '');
-  var arr = data.split(',');
+  let arr = data.split(',');
 
-  var foundAlreadyVisited = false;
-  var x = 0;
-  var y = 0;
-  var currentDir = 'u';
-  var allVisited = [];
+  let foundAlreadyVisited = false;
+  let x = 0;
+  let y = 0;
+  let currentDir = 'u';
+  let allVisited = [];
   allVisited.push(x+':'+y);
 
-  for (var i = 0, len = arr.length; i < len; i++) {
+  for (let i = 0, len = arr.length; i < len; i++) {
 
-    var direction = arr[i].charAt(0);
-    var displacement = parseInt(arr[i].substring(1, arr[i].length));
-    var newdir = newDir(currentDir, direction);
+    let direction = arr[i].charAt(0);
+    let displacement = parseInt(arr[i].substring(1, arr[i].length));
+    let newdir = newDir(currentDir, direction);
 
     if (newdir=='r') {
-      for (var j = 1; j <= displacement; j++) {
-        var pos = (x+j) + ':' + y;
+      for (let j = 1; j <= displacement; j++) {
+        let pos = (x+j) + ':' + y;
         if (!foundAlreadyVisited) {
           if (checkForAlreadyVisited(allVisited, pos)) foundAlreadyVisited=true;
         }
@@ -32,8 +32,8 @@ function computeBlocks(filename, output) {
       }
       x+=displacement;
     } else if (newdir=='l') {
-      for (var j = 1; j <= displacement; j++) {
-        var pos = (x-j) + ':' + y;
+      for (let j = 1; j <= displacement; j++) {
+        let pos = (x-j) + ':' + y;
         if (!foundAlreadyVisited) {
           if (checkForAlreadyVisited(allVisited, pos)) foundAlreadyVisited=true;
         }
@@ -41,8 +41,8 @@ function computeBlocks(filename, output) {
       }
       x-=displacement;
     } else if (newdir=='u') {
-      for (var j = 1; j <= displacement; j++) {
-        var pos = x + ':' + (y+j);
+      for (let j = 1; j <= displacement; j++) {
+        let pos = x + ':' + (y+j);
         if (!foundAlreadyVisited) {
           if (checkForAlreadyVisited(allVisited, pos)) foundAlreadyVisited=true;
         }
@@ -50,8 +50,8 @@ function computeBlocks(filename, output) {
       }
       y+=displacement;
     } else if (newdir=='d') {
-      for (var j = 1; j <= displacement; j++) {
-        var pos = x + ':' + (y-j);
+      for (let j = 1; j <= displacement; j++) {
+        let pos = x + ':' + (y-j);
         if (!foundAlreadyVisited) {
           if (checkForAlreadyVisited(allVisited, pos)) foundAlreadyVisited=true;
         }
@@ -67,9 +67,9 @@ function computeBlocks(filename, output) {
 };
 
 function checkForAlreadyVisited(arr, currentPos) {
-  for (var i = 0, len = arr.length; i < len; i++) {
+  for (let i = 0, len = arr.length; i < len; i++) {
     if (arr[i]==currentPos) {
-      console.log('Found already visited='+currentPos);
+      console.log('Found already visited: ('+currentPos.replace(':',', ')+')');
       return true;
     }
   }
