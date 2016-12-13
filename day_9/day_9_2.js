@@ -1,7 +1,5 @@
 "use strict";
 
-let Promise = require('bluebird');
-
 let chalk = require('chalk');
 let utils = require('./../utils/utils.js');
 
