@@ -27,7 +27,7 @@ for (let y=0; y<height; y++) {
   }
 }
 
-console.log(chalk.green('P1 :: Locations with at most 50 steps: '+ count));
+console.log(chalk.green('P1 :: Locations with at most 50 steps: '+ (count+1)));
 
 // ------ ------ ------ ------
 
