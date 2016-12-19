@@ -3,15 +3,14 @@
 let chalk = require('chalk');
 
 const testInput = 5;
-const input = 3001330;
+const input = 3001330; //1808357
 
 console.time("Time to distribute");
-distributePresents(testInput);
+presentsParty(testInput);
 console.timeEnd("Time to distribute");
 
-function distributePresents(input) {
-
-  console.log(chalk.red('Will shuffle presents for '+input+' elfs.'));
+function presentsParty(input) {
+  console.log(chalk.red('Will exchange presents for '+input+' elfs.'));
 
   let elfs = buildElfList(input);
   do {
